@@ -5,11 +5,9 @@ export const addChangeAction = (value) => ({
     type:ADD_CHANGE_VALUE,
     value
 });
-
 export const handChangAction = () => ({
     type:ADD_HAND_CHANGE,
 });
-
 export const delChangAction = (index) => ({
     type:DEL_CHANGE,
     index

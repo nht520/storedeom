@@ -53,7 +53,7 @@ class Home extends Component {
             <Fragment>
                 <div className="login">
                     <input
-                        placeholder="请输入账号"
+                        placeholder="请输入账号1"
                         onChange={this.addChange}
                         onKeyDown={this.inputKeyDown}
                     />
@@ -61,7 +61,7 @@ class Home extends Component {
                         type="primary"
                         className="loginButton"
                         onClick={this.handChang}
-                    >添加</Button>
+                    >添加1</Button>
                     <ul>
                         {
                             this.state.list.map((item,index)=>(

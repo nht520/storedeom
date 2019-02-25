@@ -1,9 +1,14 @@
 import React,{ Component,Fragment } from "react";
 import store from "./store/index";
 import { Button } from 'antd-mobile';
+//引用路由
+import {
+    BrowserRouter as Router,Route,Link} from 'react-router-dom'
 import Axios from "axios";
 import { actionCreators } from './store';
 import { addChangeAction,handChangAction,delChangAction,initListAction,getList} from './store/actiocnCreators'
+
+import List from "./List";
 class Home extends Component {
     constructor(props){
         super(props);
@@ -15,7 +20,7 @@ class Home extends Component {
     }
     storeMonitor = () =>{
         this.setState(store.getState())
-    }
+    };
     //使用ref操作demo 获取值
     // addChange = () =>{
     //     const action  = addChangeAction (this.input.value);
@@ -24,21 +29,21 @@ class Home extends Component {
     addChange = (e) =>{
         const action = addChangeAction (e.target.value);
         store.dispatch(action);
-    }
+    };
     handChang = () =>{
         const action = handChangAction();
         store.dispatch(action);
-    }
+    };
     delChang = (index) =>{
         const action = delChangAction (index);
         store.dispatch(action);
-    }
+    };
     //判断是否按下了回车
     inputKeyDown = (e) =>{
         if (e.keyCode === 13){
             this.handChang()
         }
-    }
+    };
     componentDidMount (){
         // 不用redux-thunk中间件的话就在页面请求 方法1
         // //获取数据将数据存在store
@@ -54,23 +59,31 @@ class Home extends Component {
         store.dispatch(action);
     }
     render(){
+        const { list } = this.state;
         return(
             <Fragment>
+
+                <Router >
+                        <div>
+                            <Route path="/List" component={List} />
+                            <Link to="/List">账号激活</Link>
+                        </div>
+                </Router>
                 <div className="login">
                     <input
                         placeholder="请输入账号"
                         onChange={this.addChange}
                         onKeyDown={this.inputKeyDown}
-                        ref={(input) =>{this.input = input}}
+                        // ref={(input) =>{this.input = input}}
                     />
                     <Button
                         type="primary"
                         className="loginButton"
                         onClick={this.handChang}
-                    >添加</Button>
+                    >添加1</Button>
                     <ul>
                         {
-                            this.state.list.map((item,index)=>(
+                            list.map((item,index)=>(
                                 <li key={index} onClick={this.delChang.bind(this,index)}>{item.title}</li>
                             ))
                         }
