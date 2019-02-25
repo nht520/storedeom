@@ -19,16 +19,16 @@ export const initListAction = (data) => ({
     data
 });
 //用redux-thunk的话请求放在action里面  方法2
-export const getList = () =>{
-     return (dispatch) =>{
-         //获取数据将数据存在store
-         var api ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
-         Axios.get(api).then((res)=>{
-             const data = res.data.result;
-             const action = initListAction(data);
-             dispatch(action);
-         },(err)=>{
-             console.log(err)
-         })
-     }
-}
+// export const getList = () =>{
+//      return (dispatch) =>{
+//          //获取数据将数据存在store
+//          var api ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
+//          Axios.get(api).then((res)=>{
+//              const data = res.data.result;
+//              const action = initListAction(data);
+//              dispatch(action);
+//          },(err)=>{
+//              console.log(err)
+//          })
+//      }
+// }

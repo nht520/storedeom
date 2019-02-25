@@ -7,7 +7,6 @@
 // export default store;
 //上面的不使用用redux-thunk中间件
 
-
 //下面的使用redux-thunk中间件
 import {  createStore,compose ,applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'

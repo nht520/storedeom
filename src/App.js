@@ -46,7 +46,7 @@ class Home extends Component {
     };
     componentDidMount (){
         // 不用redux-thunk中间件的话就在页面请求 方法1
-        // //获取数据将数据存在store
+        //获取数据将数据存在store
         // var api ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
         // Axios.get(api).then((res)=>{
         //     const data = res.data.result;
@@ -55,6 +55,7 @@ class Home extends Component {
         // },(err)=>{
         //     console.log(err)
         // })
+        //方法二
         const action = getList();
         store.dispatch(action);
     }
